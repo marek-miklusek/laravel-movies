@@ -8,12 +8,8 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.login, .register, .profile {
-    background-image: url('/public/img/login-register.jpg');
-}
-
 .flickity-button {
-    background-color: #fff;
+    background-color: white;
 }
 
 .flickity-button:hover {
@@ -32,6 +28,12 @@ body {
 .flickity-page-dots .dot.is-selected {
     background: white;
 }
+
+.profile {
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/e178a4e7-4f52-4661-b2ae-41efa25dca7c/60dd20cf-7213-48a1-b253-6484d62d96a8/IN-en-20210222-popsignuptwoweeks-perspective_alpha_website_small.jpg');
+    background-size: contain;
+}
+
 
 
 

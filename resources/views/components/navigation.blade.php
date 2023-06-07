@@ -1,5 +1,5 @@
-<div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 100)" 
-    class="w-full fixed top-0 z-50 bg-black text-white" :class="{ 'hidden': scrollDown }">
+<div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 130)" 
+    class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
     <div class="flex flex-wrap items-center p-5 px-14 justify-center">
         
        <a href="/">
@@ -25,11 +25,11 @@
                 <livewire:search-dropdown>
                 <div x-data="{ open: false }" class="relative inline-block" 
                     :class="{'text-gray-900': open, 'text-gray-600': !open }">
-                    <button  @click="open = !open" @click.away="open = false" class="flex items-center">
+                    <button @click="open = !open" @click.away="open = false" class="flex items-center">
                         <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/0RO1pLmU93-gdXvuxd_iYjzPqkc/AAAABTw7t_oDR-SWh9ddj9kh9AlOqCabZMupMWano7R5wg9x1_KPjvABqKHNeCxcMddK7Ku9HsV6keglPmWPZeh0lKU.png?r=fcc"
                             alt="avatar">
                         <span :class="open = !open ? '': '-rotate-180'" class="ml-1 transform transition-transform duration-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="w-6 h-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </span>
@@ -69,7 +69,7 @@
                         <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/0RO1pLmU93-gdXvuxd_iYjzPqkc/AAAABTw7t_oDR-SWh9ddj9kh9AlOqCabZMupMWano7R5wg9x1_KPjvABqKHNeCxcMddK7Ku9HsV6keglPmWPZeh0lKU.png?r=fcc"
                         alt="avatar">
                         <span :class="open = ! open ? '': '-rotate-180'" class="ml-2 transform transition-transform duration-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="w-6 h-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </span>

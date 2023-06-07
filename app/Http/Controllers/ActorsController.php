@@ -19,7 +19,7 @@ class ActorsController extends Controller
 
         $social = Cache::remember('social_'.$id, 60 * 60, function () use($id) {
             return Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/person/'.$id.'/external_ids')
+            ->get('https://api.themoviedb.org/3/person/'.$id.'/external_names')
             ->json();
         });
 
@@ -28,7 +28,7 @@ class ActorsController extends Controller
             ->get('https://api.themoviedb.org/3/person/'.$id.'/combined_credits')
             ->json();
         });
-
+        
         $viewModel = new ActorViewModel($actor, $social, $credits);
 
         return view('actors.show', $viewModel);

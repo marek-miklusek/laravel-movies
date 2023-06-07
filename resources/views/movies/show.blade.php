@@ -7,7 +7,7 @@
                 <img src="{{ $movie['poster_path'] }}" alt="poster" class="w-64 lg:w-96">
             </div>
             <div class="md:ml-24">
-                <h2 class="text-4xl text-white mt-4 md:mt-0 font-semibold">{{ $movie['title'] }}</h2>
+                <h2 class="text-4xl text-white mb-2 mt-4 md:mt-0 font-semibold">{{ $movie['title'] }}</h2>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm">
                     <svg class="fill-current text-orange-500 w-4" viewBox="0 0 24 24"><g data-name="Layer 2"><path d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1 1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0 01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z" data-name="star"/></g></svg>
                     <span class="ml-1">{{ $movie['vote_average'] }}</span>
@@ -46,15 +46,12 @@
                         <template x-if="isOpen">
                             <div class="fixed top-0 left-0 z-50 w-full h-full flex items-center">
                                 <div class="container mx-auto lg:px-32">
-                                    <div>
-                                        <div class="flex justify-end pr-4 pt-2">
-                                            <button @click="isOpen = false" @keydown.escape.window="isOpen = false"
-                                                class="text-3xl leading-none hover:text-gray-300">&times;
-                                            </button>
-                                        </div>
+                                    <div @keydown.escape.window="isOpen = false">
                                         <div class="modal-body px-8 py-8">
                                             <div class="responsive-container overflow-hidden relative" style="padding-top: 56.25%">
-                                                <iframe class="responsive-iframe absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/{{ $movie['videos']['results'][0]['key'] }}" style="border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                                <iframe class="responsive-iframe absolute top-0 left-0 w-full h-full" 
+                                                    src="https://www.youtube.com/embed/{{ $movie['videos']['results'][0]['key'] }}" 
+                                                    style="border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                             </div>
                                         </div>
                                     </div>
@@ -95,12 +92,13 @@
     <div class="p-2 mb-24 lg:p-8 movie-images" x-data="{ isOpen: false, image: ''}">
         <div class="container mx-auto px-4 pt-16">
             <h2 class="text-white text-4xl font-semibold">Images</h2>
-            <div @click.outside="isOpen = false" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div @click.outside="isOpen = false" @keydown.escape.window="isOpen = false"
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 @foreach ($movie['images'] as $image)
                     <div class="mt-8">
                         <a href="#" @click.prevent=" isOpen = true 
-                                image='{{ 'https://image.tmdb.org/t/p/original/'.$image['file_path'] }}'">
-                            <img src="{{ 'https://image.tmdb.org/t/p/w500/'.$image['file_path'] }}" alt="image1" 
+                            image='{{ 'https://image.tmdb.org/t/p/original/'.$image['file_path'] }}'">
+                            <img src="{{ 'https://image.tmdb.org/t/p/w500/'.$image['file_path'] }}" alt="image of actor" 
                                 class="hover:opacity-75 transition ease-in-out duration-150">
                         </a>
                     </div>

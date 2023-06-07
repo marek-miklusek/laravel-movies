@@ -1,5 +1,5 @@
-<section class="flex justify-center h-screen w-full mt-20">
-{{-- @dump($popular) --}}
+<section class="mt-32 flex justify-center h-screen w-full sm:mt-20">
+
     <div class="absolute z-10 h-full w-full">
         <div class="flex h-full items-center justify-start px-16">
             <div class="hidden w-2/5 flex-col space-y-4 py-12 lg:flex">
@@ -10,9 +10,9 @@
                     {{ $popular['overview'] }}
                 </p>
                 <div class="flex w-full flex-row space-x-4">
-                    <a href="{{ route('movies.show', $popular['id']) }}" class="bg-orange-500 hover:bg-orange-600 mt-5 flex w-28 items-center justify-center 
-                        space-x-2 rounded
-                        px-2 py-2 shadow-md">
+                    <a href="{{ route('movies.show', $popular['id']) }}" 
+                        class="bg-orange-500 hover:bg-orange-600 mt-5 flex w-28 items-center justify-center 
+                        space-x-2 rounded px-2 py-2 shadow-md">
                         <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
                         <span class="font-semibold text-black">Play</span>
                     </a>

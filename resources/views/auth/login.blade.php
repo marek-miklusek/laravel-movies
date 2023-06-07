@@ -1,6 +1,8 @@
 <x-master-layout>
   
-    <div class="w-full relative h-screen flex justify-center items-center mt-10 text-black">
+    <div class="w-full relative h-screen flex justify-center items-center">
+        <img class="absolute top-0 bottom-0 z-0 h-full w-full object-cover"
+        src="https://assets.nflxext.com/ffe/siteui/vlv3/e178a4e7-4f52-4661-b2ae-41efa25dca7c/60dd20cf-7213-48a1-b253-6484d62d96a8/IN-en-20210222-popsignuptwoweeks-perspective_alpha_website_small.jpg" alt="movies">
         
         {{-- Overlay --}}
         <div class="absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full bg-black opacity-60"></div>
@@ -8,7 +10,7 @@
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <form method="POST" action="{{ route('login') }}" class="z-30 bg-[#000] bg-opacity-80 shadow-2xl p-10 rounded-md">
+        <form method="POST" action="{{ route('login') }}" class="z-30 bg-black bg-opacity-50 p-10 rounded-md">
             @csrf
 
             <!-- Email Address -->
@@ -34,7 +36,7 @@
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                    <span class="ml-2 text-sm">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-white">{{ __('Remember me') }}</span>
                 </label>
             </div>
 
