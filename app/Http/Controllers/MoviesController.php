@@ -15,7 +15,7 @@ class MoviesController extends Controller
     {
         $popular = Cache::remember('movies_popular', 60 * 60, function () {
             return Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/popular')
+                ->get('https://api.themoviedb.org/3/movie/popular')
                 ->json()['results'];
         });
 
@@ -27,29 +27,28 @@ class MoviesController extends Controller
 
         $genres = Cache::remember('movies_genres', 60 * 60, function () {
             return Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/genre/movie/list')
-            ->json()['genres'];
+                ->get('https://api.themoviedb.org/3/genre/movie/list')
+                ->json()['genres'];
         });
+        
+        $comedy  = $this->getMoviesByGenre(35);
+        $action  = $this->getMoviesByGenre(28);
+        $horror  = $this->getMoviesByGenre(27);
+        $mystery = $this->getMoviesByGenre(9648);
+        $war     = $this->getMoviesByGenre(10752);
 
         $viewModel = new MoviesViewModel(
             $popular,
             $trending,
             $genres,
+            $comedy,
+            $action,
+            $horror,
+            $mystery,
+            $war
         );
 
-        $comedies  = $this->getMoviesByGenre(35);
-        $action    = $this->getMoviesByGenre(28);
-        $mystery   = $this->getMoviesByGenre(9648);
-        $horror    = $this->getMoviesByGenre(27);
-        $war       = $this->getMoviesByGenre(10752);
-        
-        return view('movies.index', $viewModel, [
-            'comedies'  => $comedies,
-            'mystery'   => $mystery,
-            'action'    => $action,
-            'horror'    => $horror,
-            'war'       => $war,
-        ]);
+        return view('movies.index', $viewModel);
     }
 
 
@@ -57,8 +56,8 @@ class MoviesController extends Controller
     {
         $movie = Cache::remember('movie_'.$id, 3600, function () use ($id) {
             return Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
-            ->json();
+                ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
+                ->json();
         });
 
         $viewModel = new MovieViewModel($movie);
@@ -71,7 +70,7 @@ class MoviesController extends Controller
     {
         return Cache::remember('movies_genre_'.$genre_id, 60 * 60, function () use ($genre_id) {
             return Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/discover/movie', [
+                ->get('https://api.themoviedb.org/3/discover/movie', [
                 'with_genres' => $genre_id,
             ])->json()['results'];
         });

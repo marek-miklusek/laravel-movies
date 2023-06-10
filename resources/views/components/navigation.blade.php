@@ -52,10 +52,14 @@
                                 </li>
                             @endforeach
                         </ul>
-                        <a href="{{ route('profile.edit') }}" class="block rounded-md px-8 py-2 font-bold bg-gray-200 hover:bg-gray-100 hover:text-gray-800">Profile</a>
-                        <form action="/logout" method="post">
+                        <a href="{{ route('profile.edit') }}" 
+                            class="block rounded-md px-8 py-2 font-bold bg-gray-200 hover:bg-gray-100 hover:text-gray-800">
+                            Profile
+                        </a>
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="w-full text-left rounded-md px-8 py-2 font-bold bg-gray-200 hover:bg-gray-100 hover:text-gray-800">
+                            <button type="submit" class="w-full text-left rounded-md px-8 py-2 font-bold bg-gray-200
+                                hover:bg-gray-100 hover:text-gray-800">
                                 Log Out
                             </button>
                         </form>

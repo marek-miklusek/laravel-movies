@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActorsController;
+use App\Http\Controllers\BrowseByLanguages;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NewsletterController;
@@ -30,7 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/movie/{id}', [MoviesController::class, 'show'])->name('movies.show');
 
     Route::get('/actor/{id}', [ActorsController::class, 'show'])->name('actors.show');
+
+    Route::get('/tvshows', [TvController::class, 'index'])->name('tv.index');
     Route::get('/tv/{id}', [TvController::class, 'show'])->name('tv.show');
+
+    Route::get('/browse', [BrowseByLanguages::class, 'index'])->name('browse.index');
+    Route::get('/browse/lang/{lang}', [BrowseByLanguages::class, 'selectByLang'])->name('browse.selectByLang');
+    Route::get('/browse/sort/{sort}/{lang}', [BrowseByLanguages::class, 'sortBy'])->name('browse.sortBy');
 });
 
 require __DIR__.'/auth.php';

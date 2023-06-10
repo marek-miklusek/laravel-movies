@@ -17,10 +17,10 @@ class Navigation extends Component
     {
         $this->lists = [
             ['title' => 'Films', 'href' => '/movies'],
-            ['title' => 'Tv Shows', 'href' => '/shows'],
+            ['title' => 'Tv Shows', 'href' => '/tvshows'],
             ['title' => 'Latest', 'href' => '/latest'],
             ['title' => 'My List', 'href' => '/my-list'],
-            ['title' => 'Watch Again', 'href' => '/watch-again'] 
+            ['title' => 'Browse by Languages', 'href' => '/browse'] 
         ];
     }
 

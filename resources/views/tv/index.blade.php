@@ -4,11 +4,11 @@
 
     <div class="container mb-40 mt-16 space-y-8 px-4">
         <x-movies-tv :items="$popular">
-            <x-slot:category>Popular on Netflix &rsaquo;</x-slot:category>
+            <x-slot:category>Popular Tv Shows &rsaquo;</x-slot:category>
         </x-movies-tv>
     
-        <x-movies-tv :items="$trending">
-            <x-slot:category>Trending on Netflix &rsaquo;</x-slot:category>
+        <x-movies-tv :items="$topRated">
+            <x-slot:category>Top Rated Tv Shows &rsaquo;</x-slot:category>
         </x-movies-tv>
     
         <x-movies-tv :items="$comedy">
@@ -23,8 +23,8 @@
             <x-slot:category>Mystery &rsaquo;</x-slot:category>
         </x-movies-tv>
     
-        <x-movies-tv :items="$horror">
-            <x-slot:category>Horror &rsaquo;</x-slot:category>
+        <x-movies-tv :items="$documentary">
+            <x-slot:category>Documentary &rsaquo;</x-slot:category>
         </x-movies-tv>
     
         <x-movies-tv :items="$war">
@@ -33,5 +33,5 @@
     </div>
 
     <x-gap></x-gap>
-
+    
 </x-master-layout>
