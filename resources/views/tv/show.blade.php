@@ -1,7 +1,7 @@
 <<x-master-layout>
 
-    <div class="p-2 lg:p-8 mt-10">
-        <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
+    <div class="p-2 lg:p-8 mt-10 sm:mt-0">
+        <div class="container mx-auto px-4 py-12 flex flex-col md:flex-row">
             <div class="flex-none">
                 <img src="{{ $tvshow['poster_path'] }}" alt="parasite" class="w-64 lg:w-96">
             </div>
@@ -33,6 +33,7 @@
 
                 <div x-data="{ isOpen: false }">
                     @if (count($tvshow['videos']['results']) > 0)
+                    <div class="flex items-center gap-4">
                         <div @click.outside="isOpen = false" class="mt-12">
                             <button @click="isOpen = true" class="flex items-center bg-orange-500 text-gray-900 
                                 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
@@ -40,6 +41,24 @@
                                 <span class="ml-2">Play Trailer</span>
                             </button>
                         </div>
+                        <div class="mt-12">
+                            <form action="{{ route('my-list.store') }}" method="post" class="mb-0">
+                                @csrf
+                                <button class="hover:text-white font-semibold">
+                                    <div class="flex items-center gap-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" 
+                                        class="w-12 h-12 add-to-list hover:text-orange-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Add to My List</span>
+                                    </div>
+                                </button>
+                                <input type="hidden" name="name" value="tvshow">
+                                <input type="hidden" name="id" value="{{ $tvshow['id'] }}">
+                                <input type="hidden" name="poster_path" value="{{ $tvshow['poster_path'] }}">
+                            </form>
+                        </div>
+                    </div>
 
                         <template x-if="isOpen">
                             <div class="fixed top-0 left-0 w-full h-full flex items-center">

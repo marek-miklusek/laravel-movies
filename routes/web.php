@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActorsController;
+use App\Http\Controllers\AddToMyListController;
 use App\Http\Controllers\BrowseByLanguages;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\ProfileController;
@@ -38,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/browse', [BrowseByLanguages::class, 'index'])->name('browse.index');
     Route::get('/browse/lang/{lang}', [BrowseByLanguages::class, 'selectByLang'])->name('browse.selectByLang');
     Route::get('/browse/sort/{sort}/{lang}', [BrowseByLanguages::class, 'sortBy'])->name('browse.sortBy');
+
+    Route::resource('/my-list', AddToMyListController::class)->only(['index', 'store', 'destroy']);
 });
 
 require __DIR__.'/auth.php';

@@ -13,9 +13,9 @@ class BrowseByLanguages extends Controller
 
     public function index()
     {
-        $movies = Cache::remember('browse', 60 * 60, function() {
+        $movies = Cache::remember('browse_en', 60 * 60, function() {
             return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/movie/popular')
+                ->get('https://api.themoviedb.org/3/discover/movie?with_original_language=en')
                 ->json()['results'];
         });
 

@@ -1,8 +1,8 @@
 <x-master-layout>
     
     {{-- Details about movie --}}
-    <div class="p-2 lg:p-8 mt-10">
-        <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
+    <div class="p-2 lg:p-8 mt-16 sm:mt-10">
+        <div class="container mx-auto px-4 py-12 flex flex-col md:flex-row">
             <div class="flex-none">
                 <img src="{{ $movie['poster_path'] }}" alt="poster" class="w-64 lg:w-96">
             </div>
@@ -35,12 +35,31 @@
 
                 <div x-data="{ isOpen: false }">
                     @if (count($movie['videos']['results']) > 0)
-                        <div @click.outside="isOpen = false" class="mt-12">
-                            <button @click="isOpen = true" class="flex items-center bg-orange-500 text-gray-900
-                                rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
-                                <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                                <span class="ml-2">Play Trailer</span>
-                            </button>
+                        <div class="flex items-center gap-4">
+                            <div @click.outside="isOpen = false" class="mt-12">
+                                <button @click="isOpen = true" class="flex items-center bg-orange-500 text-gray-900
+                                    rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                                    <svg class="w-6 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                                    <span class="ml-2">Play Trailer</span>
+                                </button>
+                            </div>
+                            <div class="mt-14">
+                                <form action="{{ route('my-list.store') }}" method="post" class="mb-0">
+                                    @csrf
+                                    <button class="hover:text-white font-semibold">
+                                        <div class="flex items-center gap-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" 
+                                            class="w-12 h-12 add-to-list hover:text-orange-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Add to My List</span>
+                                    </div>
+                                    </button>
+                                    <input type="hidden" name="name" value="movie">
+                                    <input type="hidden" name="id" value="{{ $movie['id'] }}">
+                                    <input type="hidden" name="poster_path" value="{{ $movie['poster_path'] }}">
+                                </form>
+                            </div>
                         </div>
 
                         <template x-if="isOpen">
