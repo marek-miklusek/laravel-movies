@@ -24,12 +24,6 @@ class MoviesController extends Controller
                 ->get('https://api.themoviedb.org/3/trending/movie/day')
                 ->json()['results'];
         });
-
-        $genres = Cache::remember('movies_genres', 60 * 60, function () {
-            return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/genre/movie/list')
-                ->json()['genres'];
-        });
         
         $comedy  = $this->getMoviesByGenre(35);
         $action  = $this->getMoviesByGenre(28);
@@ -40,7 +34,6 @@ class MoviesController extends Controller
         $viewModel = new MoviesViewModel(
             $popular,
             $trending,
-            $genres,
             $comedy,
             $action,
             $horror,
@@ -54,7 +47,7 @@ class MoviesController extends Controller
 
     public function show($id): View
     {
-        $movie = Cache::remember('movie_'.$id, 3600, function () use ($id) {
+        $movie = Cache::remember('movie_'.$id, 60 * 60, function () use ($id) {
             return Http::withToken(config('services.tmdb.token'))
                 ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
                 ->json();

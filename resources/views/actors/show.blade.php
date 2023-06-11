@@ -92,8 +92,6 @@
         </div>
     </div>
 
-    <x-gap></x-gap>
-
 </x-master-layout>
 
 

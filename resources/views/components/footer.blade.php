@@ -1,8 +1,6 @@
-@if (Request::segment(1) == null)
-    <x-gap></x-gap>
-@endif
+<x-gap></x-gap>
 
-<footer class="bg-black mx-auto grid grid-cols-3 justify-items-center sm:grid-cols-4 px-3 py-10 text-sm text-[#afafaf] underline">
+<footer class="bg-black mx-auto grid grid-cols-3 justify-items-center sm:grid-cols-4 px-3 py-10 text-sm text-[#afafaf]">
     <div class="mx-3 sm:space-y-3 w-20 h-20">
         <a href="https://netflix.com" target="_blanket" class="hover:text-[#e50914]">
             <div class="uppercase font-bold text-center mb-2">
@@ -17,20 +15,25 @@
             <a href="https://www.youtube.com/channel/UCWOA1ZGywLbqmigxE4Qlvuw" target="_blanket"><i class="hover:text-white fab fa-youtube fa-2x"></i></a>
         </div>
     </div>
-    <div class="mx-3 sm:space-y-3">
+    <div class="mx-3 sm:space-y-3 underline">
         <div>Audio and Subtitles</div>
         <div>Media centre</div>
         <div>Privacy</div>
         <div>Contact Us</div>
     </div>
-    <div class="mx-3 sm:space-y-3">
+    <div class="mx-3 sm:space-y-3 underline">
         <div>Audio Description</div>
         <div>Investor Relations</div>
         <div>Legal Notices</div>
     </div>
     <div class="hidden sm:block mx-3 sm:space-y-3">
-        <div>Help Centre</div>
-        <div>Jobs</div>
-        <div>Cookie Preferences</div>
+        <div class="underline">Help Centre</div>
+        <div class="underline">Jobs</div>
+        <div class="bg-[#1a1a1a] py-3 px-3 md:px-5 hover:bg-[#e50914] cursor-pointer hover:text-[#fff]
+            text-[#e50914] font-semibold text-xl capitalize rounded">
+            <a href="#">
+                Hi {{ Auth::user()->name }}!
+            </a>
+        </div>
     </div>
 </footer>

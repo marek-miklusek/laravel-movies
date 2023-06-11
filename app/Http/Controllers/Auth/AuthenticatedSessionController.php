@@ -30,7 +30,6 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         session()->flash('message', 'Welcome '.auth()->user()->name.', you are logged in');
-
         return redirect()->route('movies.index');
     }
 
@@ -45,8 +44,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        session()->flash('message', 'I hope we will see soon');
-
+        session()->flash('message', 'Hopefully, you come back soon');
         return redirect('/');
     }
 }

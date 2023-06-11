@@ -1,26 +1,25 @@
 <x-master-layout>
     
-    {{-- Details about movie --}}
     <div class="p-2 lg:p-8 mt-16 sm:mt-10">
         <div class="container mx-auto px-4 py-12 flex flex-col md:flex-row">
             <div class="flex-none">
                 <img src="{{ $movie['poster_path'] }}" alt="poster" class="w-64 lg:w-96">
             </div>
             <div class="md:ml-24">
+
+                {{-- Details about movie --}}
                 <h2 class="text-4xl text-white mb-2 mt-4 md:mt-0 font-semibold">{{ $movie['title'] }}</h2>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm">
                     <svg class="fill-current text-orange-500 w-4" viewBox="0 0 24 24"><g data-name="Layer 2"><path d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1 1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0 01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z" data-name="star"/></g></svg>
                     <span class="ml-1">{{ $movie['vote_average'] }}</span>
                     <span class="mx-2">|</span>
-                    <span>{{ $movie['release_date'] }}</span>
+                    <span>{{ $movie['human_date'] }}</span>
                     <span class="mx-2">|</span>
                     <span>{{ $movie['genres'] }}</span>
                 </div>
+                <p class="text-gray-300 mt-8">{{ $movie['overview'] }}</p>
 
-                <p class="text-gray-300 mt-8">
-                    {{ $movie['overview'] }}
-                </p>
-
+                {{-- Crew --}}
                 <div class="mt-12">
                     <h4 class="text-gray-400 font-semibold text-lg">Featured Crew</h4>
                     <div class="flex mt-4">
@@ -35,7 +34,7 @@
 
                 <div x-data="{ isOpen: false }">
                     @if (count($movie['videos']['results']) > 0)
-                        <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-4 relative">
                             <div @click.outside="isOpen = false" class="mt-12">
                                 <button @click="isOpen = true" class="flex items-center bg-orange-500 text-gray-900
                                     rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
@@ -46,18 +45,13 @@
                             <div class="mt-14">
                                 <form action="{{ route('my-list.store') }}" method="post" class="mb-0">
                                     @csrf
-                                    <button class="hover:text-white font-semibold">
-                                        <div class="flex items-center gap-4">
+                                        <button @popper(Add to My List!) class="font-semibold">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" 
-                                            class="w-12 h-12 add-to-list hover:text-orange-500">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        <span>Add to My List</span>
-                                    </div>
-                                    </button>
-                                    <input type="hidden" name="name" value="movie">
-                                    <input type="hidden" name="id" value="{{ $movie['id'] }}">
-                                    <input type="hidden" name="poster_path" value="{{ $movie['poster_path'] }}">
+                                                class="w-12 h-12 add-play">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </button>
+                                    <input type="hidden" name="movie" value="{{ $movie }}">
                                 </form>
                             </div>
                         </div>
@@ -134,6 +128,4 @@
         </div>
     </div>
 
-    <x-gap></x-gap>
-    
 </x-master-layout>

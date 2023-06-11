@@ -24,12 +24,6 @@ class TvController extends Controller
                 ->json()['results'];
         });
 
-        $genres = Cache::remember('tv_genres', 60 * 60, function() {
-            return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/genre/tv/list')
-                ->json()['genres'];
-        });
-
         $documentary = $this->getTvShowsByGenre(99);
         $comedy      = $this->getTvShowsByGenre(35);
         $mystery     = $this->getTvShowsByGenre(9648);
@@ -39,7 +33,6 @@ class TvController extends Controller
         $viewModel = new TvViewModel(
             $popular,
             $topRated,
-            $genres,
             $documentary,
             $comedy,
             $mystery,

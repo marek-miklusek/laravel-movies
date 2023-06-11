@@ -1,4 +1,4 @@
-<div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 100)" 
+<div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 50)" 
     class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
     <div class="flex flex-wrap items-center p-5 px-14 justify-center">
         

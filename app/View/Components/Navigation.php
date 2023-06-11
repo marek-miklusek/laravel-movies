@@ -16,7 +16,7 @@ class Navigation extends Component
     public function __construct()
     {
         $this->lists = [
-            ['title' => 'Films', 'href' => '/movies'],
+            ['title' => 'Movies', 'href' => '/movies'],
             ['title' => 'Tv Shows', 'href' => '/tvshows'],
             ['title' => 'My List', 'href' => '/my-list'],
             ['title' => 'Browse by Languages', 'href' => '/browse'] 

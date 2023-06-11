@@ -1,25 +1,26 @@
-<<x-master-layout>
+<x-master-layout>
 
-    <div class="p-2 lg:p-8 mt-10 sm:mt-0">
+    <div class="p-2 lg:p-8 mt-16 sm:mt-10">
         <div class="container mx-auto px-4 py-12 flex flex-col md:flex-row">
             <div class="flex-none">
                 <img src="{{ $tvshow['poster_path'] }}" alt="parasite" class="w-64 lg:w-96">
             </div>
             <div class="md:ml-24">
+
+                {{-- Details about tvshow --}}
                 <h2 class="text-white mb-2 text-4xl mt-4 md:mt-0 font-semibold">{{ $tvshow['name'] }}</h2>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm">
                     <svg class="fill-current text-orange-500 w-4" viewBox="0 0 24 24"><g data-name="Layer 2"><path d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1 1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0 01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z" data-name="star"/></g></svg>
                     <span class="ml-1">{{ $tvshow['vote_average'] }}</span>
                     <span class="mx-2">|</span>
-                    <span>{{ $tvshow['first_air_date'] }}</span>
+                    <span>{{ $tvshow['human_date'] }}</span>
                     <span class="mx-2">|</span>
                     <span>{{ $tvshow['genres'] }}</span>
                 </div>
 
-                <p class="text-gray-300 mt-8">
-                    {{ $tvshow['overview'] }}
-                </p>
+                <p class="text-gray-300 mt-8">{{ $tvshow['overview'] }}</p>
 
+                {{-- Crew --}}
                 <div class="mt-12">
                     <div class="flex mt-4">
                         @foreach ($tvshow['created_by'] as $crew)
@@ -42,20 +43,17 @@
                             </button>
                         </div>
                         <div class="mt-12">
-                            <form action="{{ route('my-list.store') }}" method="post" class="mb-0">
+                            <form action="{{ route('my-list.store') }}" method="post" class="flex mb-0">
                                 @csrf
-                                <button class="hover:text-white font-semibold">
+                                <button @popper(Add to My List!) class="hover:text-white font-semibold">
                                     <div class="flex items-center gap-4">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" 
-                                        class="w-12 h-12 add-to-list hover:text-orange-500">
+                                            class="w-12 h-12 add-play">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
-                                        <span>Add to My List</span>
                                     </div>
                                 </button>
-                                <input type="hidden" name="name" value="tvshow">
-                                <input type="hidden" name="id" value="{{ $tvshow['id'] }}">
-                                <input type="hidden" name="poster_path" value="{{ $tvshow['poster_path'] }}">
+                                <input type="hidden" name="movie" value="{{ $tvshow }}">
                             </form>
                         </div>
                     </div>

@@ -2,20 +2,40 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Movie extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['movie_id', 'poster_path', 'name'];
+    protected $fillable = ['movie_id', 'poster_path', 'route', 'vote_average', 'release_date', 'genres', 'name'];
     
     protected $primaryKey = 'movie_id';
 
-    public function getRoute()
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Accessors
+    |--------------------------------------------------------------------------
+    */
+
+    /**
+     * Get the formatted release date attribute for display
+     */
+    public function getReleaseDateAttribute($value) 
     {
-        if ($this->name == 'movie') {
+        return Carbon::parse($value)->format('d M, Y');
+    }
+
+
+    /**
+     * Get the route attribute based on the type of media (movie or TV show)
+     */
+    public function getRouteAttribute($value)
+    {
+        if ($value == 'movie') {
             return 'movies.show';
         }
         else {

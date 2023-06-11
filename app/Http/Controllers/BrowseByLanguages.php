@@ -19,9 +19,16 @@ class BrowseByLanguages extends Controller
                 ->json()['results'];
         });
 
+        $genres = Cache::remember('genres_browse', 60 * 60, function() {
+            return Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3/genre/movie/list')
+                ->json()['genres'];
+        });
+
         $viewModel = new BrowseViewModel(
             $movies,
             $this->sort,
+            $genres,
         );
 
         return view('browse.index', $viewModel);
@@ -48,7 +55,7 @@ class BrowseByLanguages extends Controller
             case 'sk':
                 $movies = Cache::remember('lang_sk', 60 * 60, function() {
                     return Http::withToken(config('services.tmdb.token'))
-                        ->get('https://api.themoviedb.org/3/discover/movie?with_original_language=sk')
+                        ->get('https://api.themoviedb.org/3/discover/movie?with_original_language=sk&append_to_response=genres')
                         ->json()['results'];
                 });
                 break;
@@ -64,9 +71,16 @@ class BrowseByLanguages extends Controller
                 break;
         }
 
+        $genres = Cache::remember('genres_lang', 60 * 60, function() {
+            return Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3/genre/movie/list')
+                ->json()['genres'];
+        });
+
         $viewModel = new BrowseViewModel(
             $movies,
             $this->sort,
+            $genres,
         );
         
         return view('browse.index', $viewModel);

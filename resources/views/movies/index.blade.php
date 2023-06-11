@@ -32,6 +32,4 @@
         </x-movies-tv>
     </div>
 
-    <x-gap></x-gap>
-
 </x-master-layout>

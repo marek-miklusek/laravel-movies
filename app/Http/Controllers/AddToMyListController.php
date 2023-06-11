@@ -23,32 +23,34 @@ class AddToMyListController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'id' => 'integer',
-            'poster_path' => 'string',
-            'name' => 'string',
-        ]);
-
         $user = auth()->user();
-
+        
         if( ! $user ) {
             return redirect()->route('login');
         }
+
+        $movie = json_decode($request->movie);
         
-        $movie = Movie::find($request->id);
-        
-        if ($movie) {
-            session()->flash('message', 'This '.$request->name.' is already in your list');
+        $data = $this->formatMovieTv($movie);
+
+        $movie_db = Movie::find($movie->id);
+
+        if ($movie_db) {
+            session()->flash('message', $data->name.' is already in your list');
             return redirect()->back();
         }
         
         Movie::create([
-            'movie_id' => $request->id,
-            'poster_path' => $request->poster_path,
-            'name' => $request->name,
+            'movie_id' => $movie->id,
+            'poster_path' => $movie->poster_path,
+            'vote_average' => $movie->vote_average,
+            'release_date' => $data->date,
+            'genres' => $movie->genres,
+            'route' => $data->route,
+            'name' => $data->name,
         ]);
 
-        session()->flash('message', 'Fantastic!, Your favorite '.$request->name.' has been added to your list');
+        session()->flash('message', $data->name.' has been added to your list');
         return redirect()->back();
     }
 
@@ -62,7 +64,25 @@ class AddToMyListController extends Controller
 
         $movie->delete();
 
-        session()->flash('message_d', 'Your favorite '.$movie->name.' was removed');
+        session()->flash('message_d', $movie->name.' was removed from your list');
         return redirect()->back();
+    }
+
+
+    private function formatMovieTv($movie)
+    {
+        if (isset($movie->title)) {
+            $data['name'] = $movie->title;
+            $data['route'] = 'movie';
+            $data['date'] = $movie->release_date;
+        
+        }
+        else if (isset($movie->name)) {
+            $data['name'] = $movie->name;
+            $data['route'] = 'tvshow';
+            $data['date'] = $movie->first_air_date;
+        }
+
+        return (object)$data;
     }
 }
