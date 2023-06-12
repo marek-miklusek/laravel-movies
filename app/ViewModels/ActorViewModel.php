@@ -7,22 +7,19 @@ use Spatie\ViewModels\ViewModel;
 
 class ActorViewModel extends ViewModel
 {
-    public $actor;
-    public $social;
-    public $credits;
-
-    public function __construct($actor, $social, $credits)
+    public function __construct(public $actor, public $social, public $credits)
     {
-        $this->actor = $actor;
-        $this->social = $social;
-        $this->credits = $credits;
+        //
     }
 
     
     public function actor()
     {
         return collect($this->actor)->merge([
-            'birthday' => Carbon::parse($this->actor['birthday'])->format('M d, Y'),
+            'birthday' => $this->actor['birthday'] 
+                ? Carbon::parse($this->actor['birthday'])->format('d M, Y') 
+                : 'Unknown',
+            'place_of_birth' => $this->actor['place_of_birth'] ? $this->actor['place_of_birth'] : 'Unknown',
             'age' => Carbon::parse($this->actor['birthday'])->age,
             'profile_path' => $this->actor['profile_path']
                 ? 'https://image.tmdb.org/t/p/w300/'.$this->actor['profile_path']

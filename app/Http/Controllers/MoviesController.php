@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Cache;
 
 class MoviesController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index(): View
     {
         $popular = Cache::remember('movies_popular', 60 * 60, function () {

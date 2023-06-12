@@ -6,23 +6,9 @@ use Spatie\ViewModels\ViewModel;
 
 class MoviesViewModel extends ViewModel
 {
-    public $popular;
-    public $trending;
-    public $comedy;
-    public $action;
-    public $horror;
-    public $mystery;
-    public $war;
-
-    public function __construct($popular, $trending, $comedy, $action, $horror, $mystery, $war)
+    public function __construct(public $popular, public $trending, public $comedy, public $action, public $horror, public $mystery, public $war)
     {
-        $this->popular  = $popular;
-        $this->trending = $trending;
-        $this->comedy   = $comedy;
-        $this->action   = $action;
-        $this->horror   = $horror;
-        $this->mystery  = $mystery;
-        $this->war      = $war;
+        //
     }
 
 

@@ -6,23 +6,9 @@ use Spatie\ViewModels\ViewModel;
 
 class TvViewModel extends ViewModel
 {
-    public $popular;
-    public $topRated;
-    public $documentary;
-    public $comedy;
-    public $mystery;
-    public $action;
-    public $war;    
-    
-    public function __construct($popular, $topRated, $documentary, $comedy, $mystery, $action, $war)
+    public function __construct(public $popular, public $topRated, public $documentary, public $comedy, public $mystery, public $action, public $war)
     {
-        $this->popular     = $popular;
-        $this->topRated    = $topRated;
-        $this->documentary = $documentary;
-        $this->comedy      = $comedy;
-        $this->mystery     = $mystery;
-        $this->action      = $action;
-        $this->war         = $war;
+       //
     }
 
 

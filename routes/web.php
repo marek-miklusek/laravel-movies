@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActorsController;
 use App\Http\Controllers\AddToMyListController;
-use App\Http\Controllers\BrowseByLanguages;
+use App\Http\Controllers\BrowseByLangGenre;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NewsletterController;
@@ -36,9 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/tvshows', [TvController::class, 'index'])->name('tv.index');
     Route::get('/tv/{id}', [TvController::class, 'show'])->name('tv.show');
 
-    Route::get('/browse', [BrowseByLanguages::class, 'index'])->name('browse.index');
-    Route::get('/browse/lang/{lang}', [BrowseByLanguages::class, 'selectByLang'])->name('browse.selectByLang');
-    Route::get('/browse/sort/{sort}/{lang}', [BrowseByLanguages::class, 'sortBy'])->name('browse.sortBy');
+    Route::get('/browse', [BrowseByLangGenre::class, 'index'])->name('browse.index');
+    Route::get('/browse/lang/{lang}', [BrowseByLangGenre::class, 'selectByLang'])->name('browse.lang');
+    Route::get('/browse/sort/{sort}/{lang}/{genre?}', [BrowseByLangGenre::class, 'sortBy'])->name('browse.sortBy');
+    Route::get('/browse/genre/{genre}/{lang}/{sort?}', [BrowseByLangGenre::class, 'selectByGenres'])->name('browse.genre');
 
     Route::resource('/my-list', AddToMyListController::class)->only(['index', 'store', 'destroy']);
 });

@@ -7,18 +7,12 @@ use Spatie\ViewModels\ViewModel;
 
 class BrowseViewModel extends ViewModel
 {
-    public $movies;
-    public $sort;
-    public $genres;
-
-    public function __construct($movies, $sort, $genres)
+    public function __construct(public $movies, public $sort, public $genres)
     {
-        $this->movies = $movies;
-        $this->sort = $sort;
-        $this->genres = $genres;
+        //
     }
-
-
+    
+    
     public function movies()
     {
          switch ($this->sort) {
@@ -66,7 +60,7 @@ class BrowseViewModel extends ViewModel
                 'genres' => $genres_formatted,
             ])->only([
                 'poster_path', 'id', 'release_date', 'title', 'original_language', 'sort',
-                'vote_average', 'genres', 'human_date'
+                'vote_average', 'genres', 'human_date',
             ]);
         });
     }

@@ -36,18 +36,18 @@ class AddToMyListController extends Controller
         $movie_db = Movie::find($movie->id);
 
         if ($movie_db) {
-            session()->flash('message', $data->name.' is already in your list');
+            session()->flash('message_w', $data->name.' is already in your list');
             return redirect()->back();
         }
         
         Movie::create([
-            'movie_id' => $movie->id,
-            'poster_path' => $movie->poster_path,
+            'movie_id'     => $movie->id,
+            'poster_path'  => $movie->poster_path,
             'vote_average' => $movie->vote_average,
             'release_date' => $data->date,
-            'genres' => $movie->genres,
-            'route' => $data->route,
-            'name' => $data->name,
+            'genres'       => $movie->genres,
+            'route'        => $data->route,
+            'name'         => $data->name,
         ]);
 
         session()->flash('message', $data->name.' has been added to your list');

@@ -7,12 +7,12 @@ use Spatie\ViewModels\ViewModel;
 
 class TvShowViewModel extends ViewModel
 {
-    public $tvshow;
-
-    public function __construct($tvshow)
+    public function __construct(public $tvshow)
     {
-        $this->tvshow = $tvshow;
+        //
     }
+
+    
     public function tvshow()
     {
         return collect($this->tvshow)->merge([

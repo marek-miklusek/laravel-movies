@@ -19,7 +19,7 @@ class Navigation extends Component
             ['title' => 'Movies', 'href' => '/movies'],
             ['title' => 'Tv Shows', 'href' => '/tvshows'],
             ['title' => 'My List', 'href' => '/my-list'],
-            ['title' => 'Browse by Languages', 'href' => '/browse'] 
+            ['title' => 'Browse Movies', 'href' => '/browse'] 
         ];
     }
 
