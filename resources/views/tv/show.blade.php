@@ -103,7 +103,7 @@
 
     {{-- Tv images --}}
     <div class="p-2 lg:p-8" x-data="{ isOpen: false, image: ''}">
-        <div class="container mx-auto px-4 py-16">
+        <div class="container mx-auto px-4 pt-16 pb-24">
             <h2 class="text-4xl font-semibold text-white">Images</h2>
             <div @click.outside="isOpen = false" @keydown.escape.window="isOpen = false" 
                 class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

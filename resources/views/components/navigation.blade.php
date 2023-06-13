@@ -9,7 +9,7 @@
        </a>
 
         @auth
-            <ul class="font-bold hidden ml-auto text-md flex-row gap-6 text-md lg:flex">
+            <ul class="font-bold hidden ml-auto text-md flex-row gap-6 lg:flex">
                 @foreach ($lists as $item)
                     <li>
                         <a href="{{ $item['href'] }}" class="hover:text-gray-400">
@@ -86,11 +86,11 @@
                         x-transition:leave="transition ease-in duration-300"
                         x-transition:leave-start="opacity-100 transform scale-100"
                         x-transition:leave-end="opacity-0 transform scale-90"
-                        class="absolute right-0 min-w-max rounded-md bg-white text-gray-500 shadow-xl">
-                        <a href="{{ route('register') }}" class="block rounded-t-md px-8 py-2 hover:bg-gray-200 hover:text-gray-600">
+                        class="absolute right-0 min-w-max rounded-md bg-[#333] text-white">
+                        <a href="{{ route('register') }}" class="block rounded-t-md px-8 py-2 bg-[#333] hover:bg-gray-200 hover:text-gray-800">
                             Register
                         </a>
-                        <a href="{{ route('login') }}" class="block rounded-b-md px-8 py-2 hover:bg-gray-200 hover:text-gray-600">
+                        <a href="{{ route('login') }}" class="block rounded-b-md px-8 py-2 bg-[#333] hover:bg-gray-200 hover:text-gray-800">
                             Log in
                         </a>
                     </div>

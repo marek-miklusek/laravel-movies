@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/movies', [MoviesController::class, 'index'])->name('movies.index');
     Route::get('/movie/{id}', [MoviesController::class, 'show'])->name('movies.show');
+    Route::get('/upcoming', [MoviesController::class, 'upcoming'])->name('movies.upcoming');
 
     Route::get('/actor/{id}', [ActorsController::class, 'show'])->name('actors.show');
 

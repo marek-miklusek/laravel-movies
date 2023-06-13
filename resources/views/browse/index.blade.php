@@ -2,7 +2,7 @@
     
     <x-browse-inputs :movies="$movies" :genre="$genre ?? '' " />
     
-    <div class="container mx-auto px-6 py-16">
+    <div class="container mx-auto px-6 pt-16 pb-24">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             @foreach ($movies as $movie)
                 <div class="mt-5">

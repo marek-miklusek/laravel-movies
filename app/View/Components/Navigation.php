@@ -18,8 +18,9 @@ class Navigation extends Component
         $this->lists = [
             ['title' => 'Movies', 'href' => '/movies'],
             ['title' => 'Tv Shows', 'href' => '/tvshows'],
+            ['title' => 'Upcoming', 'href' => '/upcoming'],
             ['title' => 'My List', 'href' => '/my-list'],
-            ['title' => 'Browse Movies', 'href' => '/browse'] 
+            ['title' => 'Browse', 'href' => '/browse'] 
         ];
     }
 
