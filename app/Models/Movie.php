@@ -42,4 +42,13 @@ class Movie extends Model
             return 'tv.show';
         };
     }
+
+
+    /**
+     * Get the vote average attribute without the percentage sign.
+     */
+    public function getVoteAverageAttribute($value)
+    {
+        return rtrim($value, '%');
+    }
 }

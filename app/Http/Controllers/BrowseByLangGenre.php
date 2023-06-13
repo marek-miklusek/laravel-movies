@@ -19,11 +19,7 @@ class BrowseByLangGenre extends Controller
                 ->json()['results'];
         });
 
-        $genres = Cache::remember('genres_browse', 60 * 60, function() {
-            return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/genre/movie/list')
-                ->json()['genres'];
-        });
+        $genres = $this->genresRequest();
 
         $viewModel = new BrowseViewModel(
             $movies,
@@ -71,11 +67,7 @@ class BrowseByLangGenre extends Controller
                 break;
         }
 
-        $genres = Cache::remember('genres_lang', 60 * 60, function() {
-            return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/genre/movie/list')
-                ->json()['genres'];
-        });
+        $genres = $this->genresRequest();
 
         $viewModel = new BrowseViewModel(
             $movies,
@@ -110,11 +102,7 @@ class BrowseByLangGenre extends Controller
                 break;
         }
 
-        $genres = Cache::remember('select_by_genres', 60 * 60, function() {
-            return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/genre/movie/list')
-                ->json()['genres'];
-        });
+        $genres = $this->genresRequest();
 
         $viewModel = new BrowseViewModel(
             $movies,
@@ -145,6 +133,16 @@ class BrowseByLangGenre extends Controller
             return Http::withToken(config('services.tmdb.token'))
                 ->get("https://api.themoviedb.org/3/discover/movie?with_original_language=$lang&with_genres=$genre_id")
                 ->json()['results'];
+        });
+    }
+
+
+    private function genresRequest()
+    {
+        return Cache::remember('browse_genres', 60 * 60, function() {
+            return Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3/genre/movie/list')
+                ->json()['genres'];
         });
     }
 }

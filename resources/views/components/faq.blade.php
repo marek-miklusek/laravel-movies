@@ -1,6 +1,6 @@
 <div class="h-3 w-full" style="background-color: #222"></div>
 
-<div class="container mx-auto mt-12 px-4 text-center xl:px-64">
+<div class="container mx-auto mt-12 px-4 pb-32 text-center xl:px-64">
     <h2 class="text-white text-5xl font-bold">Frequently Asked Questions</h2>
     <div x-data="{ active: 0, items: [
         { id: 1, title: 'What is Netflix?', answer: 'Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices. You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price' },
@@ -9,7 +9,7 @@
         { id: 4, title: 'How do I cancel?', answer: 'Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.'},
         { id: 5, title: 'What can I watch on Netflix?', answer: 'Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.'},
         { id: 6, title: 'Is Netflix good for kids?', answer: 'The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space. Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.'},
-        ]}"class="space-y-4">
+        ]}" class="space-y-4">
         <template x-for="{ id, title, answer } in items " :key="id" >
             <div x-data="{
                 get expanded() {
@@ -20,8 +20,7 @@
                 },
             }" role="region" class="border border-black text-gray-100 bg-[#303030] hover:bg-[#4a4a4a]">
                 <h2>
-                    <button
-                        @click="expanded = !expanded"
+                    <button @click="expanded = !expanded"
                         :aria-expanded="expanded"
                         class="flex w-full items-center justify-between px-6 py-3 text-xl font-bold tracking-wider">
                         <span x-text="title"></span>

@@ -42,10 +42,10 @@
                         x-transition:leave="transition ease-in duration-300"
                         x-transition:leave-start="opacity-100 transform scale-100"
                         x-transition:leave-end="opacity-0 transform scale-90"
-                        class="absolute right-0 min-w-max rounded-md bg-white text-gray-500 shadow-xl">
-                        <ul class="lg:hidden">
+                        class="absolute right-0 min-w-max rounded-md bg-[#333] text-white">
+                        <ul class="lg:hidden bg-[#333]">
                             @foreach ($lists as $item)
-                                <li>
+                                <li class="b">
                                     <a href="{{ $item['href'] }}" class="block rounded-md px-8 py-2 font-bold hover:bg-gray-200 hover:text-gray-800">
                                         {{ $item['title'] }}
                                     </a>
@@ -53,13 +53,13 @@
                             @endforeach
                         </ul>
                         <a href="{{ route('profile.edit') }}" 
-                            class="block rounded-md px-8 py-2 font-bold bg-gray-200 hover:bg-gray-100 hover:text-gray-800">
+                            class="block rounded-md px-8 py-2 font-bold bg-[#333] hover:bg-gray-200 hover:text-gray-800">
                             Profile
                         </a>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="w-full text-left rounded-md px-8 py-2 font-bold bg-gray-200
-                                hover:bg-gray-100 hover:text-gray-800">
+                            <button type="submit" class="w-full text-left rounded-md px-8 py-2 font-bold bg-[#333]
+                                hover:bg-gray-200 hover:text-gray-800">
                                 Log Out
                             </button>
                         </form>

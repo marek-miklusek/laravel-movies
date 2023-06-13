@@ -1,5 +1,5 @@
 <x-master-layout>
     <x-home-page />
     <x-faq />
-    <x-newsletter :section="true" />
+    <x-newsletter />
 </x-master-layout>

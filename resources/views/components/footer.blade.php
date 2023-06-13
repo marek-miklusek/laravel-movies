@@ -1,6 +1,7 @@
 <x-gap></x-gap>
 
-<footer class="bg-black mx-auto grid grid-cols-3 justify-items-center sm:grid-cols-4 px-3 py-10 text-sm text-[#afafaf]">
+<footer class="bg-black mx-auto grid grid-cols-3 justify-items-center sm:grid-cols-4 px-3
+    pt-10 pb-20 sm:pb-14 text-sm text-[#afafaf]">
     <div class="mx-3 sm:space-y-3 w-20 h-20">
         <a href="https://netflix.com" target="_blanket" class="hover:text-[#e50914] hover:underline">
             <div class="uppercase font-bold text-center mb-2">
@@ -28,15 +29,21 @@
         <div>Terms of Use</div>
     </div>
     <div class="hidden sm:block mx-3 sm:space-y-3">
-        <div class="underline">Help Centre</div>
-        <div class="underline">Jobs</div>
-        <div class="underline {{ isset(Auth::user()->name) ? 'hidden' : 'block'  }}">Corporate Information</div>
-        <div class="underline {{ isset(Auth::user()->name) ? 'hidden' : 'block'  }}">Cookie Preferences</div>
-        <div class="bg-[#1a1a1a] py-3 px-3 md:px-5 hover:bg-[#e50914] cursor-pointer hover:text-[#fff]
-            text-[#e50914] font-semibold text-xl capitalize rounded {{ Auth::user()->name ?? 'hidden' }}">
-            <a href="#">
-                Hi {{ Auth::user()->name ?? '' }}!
-            </a>
-        </div>
+        @guest
+            <div class="underline">Help Centre</div>
+            <div class="underline">Jobs</div>
+            <div class="underline">Corporate Information</div>
+            <div class="underline">Cookie Preferences</div>
+        @endguest
+        @auth
+            <div class="underline">Help Centre</div>
+            <div class="underline">Jobs</div>
+            <div class="bg-[#1a1a1a] py-4 px-3 md:px-5 hover:bg-[#e50914] cursor-pointer hover:text-[#fff]
+                text-[#e50914] font-semibold text-xl capitalize rounded {{ Auth::user()->name ?? 'hidden' }}">
+                <a href="/profile">
+                    Hi {{ Auth::user()->name ?? '' }}!
+                </a>
+            </div>
+        @endauth
     </div>
 </footer>

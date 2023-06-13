@@ -6,9 +6,8 @@
     <title>Netflix</title>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/flowbite.min.js'])
     <livewire:styles>
 </head>
 <style>
@@ -23,8 +22,8 @@
     <x-flash-message />
 
     <x-footer />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    
+    <x-progress-bar />
     <livewire:scripts>
     @include('popper::assets')
 </body>

@@ -55,7 +55,7 @@ class BrowseViewModel extends ViewModel
                     ? 'https://image.tmdb.org/t/p/w500'.$movie['poster_path']
                     : 'https://via.placeholder.com/500x750',
                 'sort' => $this->sort,
-                'vote_average' => $movie['vote_average'] * 10 .'%',
+                'vote_average' => intval($movie['vote_average'] * 10),
                 'human_date' => Carbon::parse($movie['release_date'])->format('d M, Y'),
                 'genres' => $genres_formatted,
             ])->only([
