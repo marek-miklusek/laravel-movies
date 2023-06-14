@@ -1,7 +1,7 @@
 <div id="dropdown" class="z-10 hidden justify-center items-center rating-dropdown pointer-events-auto">
     <div x-data="{ 
         rating: 0, hoverRating: 0,
-        ratings: [{'amount': 1, 'label':'Terrible'}, {'amount': 2, 'label':'Bad'}, {'amount': 3, 'label':'Okay'}, {'amount': 4, 'label':'Good'}, {'amount': 5, 'label':'Great'}],
+        ratings: [{'amount': 1, 'label':'Terrible'}, {'amount': 2, 'label':'Bad'}, {'amount': 3, 'label':'Good'}, {'amount': 4, 'label':'Great'}, {'amount': 5, 'label':'Fantastic'}],
         rate(amount) {
             if (this.rating == amount) {
                 this.rating = 0;

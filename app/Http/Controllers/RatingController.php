@@ -8,7 +8,8 @@ class RatingController extends Controller
 {
     public function rating($title)
     {
-        session()->flash('message', $title.' got '.request('amount').' rating from you');
+        $amount = '<span class="text-orange-500">'.request('amount').'</span>';
+        session()->flash('message', $title.' got a '.$amount.' rating from you');
         return redirect()->back();
     }
 }
