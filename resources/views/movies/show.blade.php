@@ -10,8 +10,20 @@
                 {{-- Details about movie --}}
                 <h2 class="text-4xl text-white mb-2 mt-4 md:mt-0 font-semibold">{{ $movie['title'] }}</h2>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm">
-                    <svg class="fill-current text-orange-500 w-4" viewBox="0 0 24 24"><g data-name="Layer 2"><path d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1 1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0 01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z" data-name="star"/></g></svg>
-                    <span class="ml-1">{{ $movie['vote_average'] }}</span>
+                    <section class="w-9" x-data="skillDisplay">
+                        <div class="flex items-center justify-center" x-data="{ circumference: 2 * 22 / 7 * 15 }"
+                            x-init="currentSkill.percent = {{ $movie['vote_average'] }}">
+                            <svg class="transform -rotate-90 w-9 h-9">
+                                <circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="3" fill="transparent"
+                                    class="text-gray-700" />
+                                <circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="3" fill="transparent"
+                                    :stroke-dasharray="circumference"
+                                    :stroke-dashoffset="circumference - currentSkill.percent / 100 * circumference"
+                                    class="text-orange-500" />
+                            </svg>
+                            <span class="absolute text-xs text-white" x-text="`${currentSkill.percent}%`"></span>
+                        </div>
+                    </section>
                     <span class="mx-2">|</span>
                     <span>{{ $movie['human_date'] }}</span>
                     <span class="mx-2">|</span>
@@ -54,6 +66,19 @@
                                     <input type="hidden" name="movie" value="{{ $movie }}">
                                 </form>
                             </div>
+
+                            {{-- Rate it button --}}
+                            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" @popper(Rate it!) 
+                                class="bg-black mt-12 w-10 h-10 border-2 border-white hover:border-[#21d07a]
+                                    rounded-full flex justify-center items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#FFD700" viewBox="0 0 24 24" 
+                                    stroke-width="1.5" stroke="#FFD700" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 
+                                    0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                                </svg>
+                            </button>
+                            
+                            <x-rating-stars :title="$movie['title']" />
                         </div>
 
                         <template x-if="isOpen">

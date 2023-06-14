@@ -30,7 +30,6 @@
         <x-movies-tv :items="$war">
             <x-slot:category>War &rsaquo;</x-slot:category>
         </x-movies-tv>
-        
     </div>
 
 </x-master-layout>

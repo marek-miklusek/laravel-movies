@@ -19,7 +19,7 @@ class MovieViewModel extends ViewModel
             'poster_path' => $this->movie['poster_path']
                 ? 'https://image.tmdb.org/t/p/w500/'.$this->movie['poster_path']
                 : 'https://via.placeholder.com/500x750',
-            'vote_average' => $this->movie['vote_average'] * 10 .'%',
+            'vote_average' => intval($this->movie['vote_average'] * 10),
             'human_date' => Carbon::parse($this->movie['release_date'])->format('d M, Y'),
             'genres' => collect($this->movie['genres'])->pluck('name')->flatten()->implode(', '),
             'crew' => collect($this->movie['credits']['crew'])->take(2),

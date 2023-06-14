@@ -23,8 +23,8 @@
             <div>
                 <div class="text-5xl text-[#e50914]">Disclaimer.</div>
                 <div class="pt-10 lg:w-3/4 text-2xl">
-                    Hi everybody, this website is a clone of Netflix, and here you can only watch movie and 
-                    TV trailers. If you want to watch full movies and TV shows, go to the original 
+                    This website is an imitation of Netflix, where you can watch movie and 
+                    tv show trailers. If you want to watch full movies and tv shows, go to the original 
                     <a href="https://netflix.com" target="_blanket" class="text-[#e50914] hover:underline">
                         NETFLIX.
                     </a> 

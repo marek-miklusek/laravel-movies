@@ -23,6 +23,7 @@
 
     <x-footer />
     
+    <x-script-rating />
     <x-progress-bar />
     <livewire:scripts>
     @include('popper::assets')

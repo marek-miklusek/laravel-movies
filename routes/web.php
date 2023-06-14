@@ -7,6 +7,7 @@ use App\Http\Controllers\BrowseByLangGenre;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TvController;
 
 /*
@@ -41,6 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/browse/lang/{lang}', [BrowseByLangGenre::class, 'selectByLang'])->name('browse.lang');
     Route::get('/browse/sort/{sort}/{lang}/{genre?}', [BrowseByLangGenre::class, 'sortBy'])->name('browse.sortBy');
     Route::get('/browse/genre/{genre}/{lang}/{sort?}', [BrowseByLangGenre::class, 'selectByGenres'])->name('browse.genre');
+
+    Route::get('/rating/{title}', [RatingController::class, 'rating'])->name('rating');
 
     Route::resource('/my-list', AddToMyListController::class)->only(['index', 'store', 'destroy']);
 });
