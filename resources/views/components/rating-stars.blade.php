@@ -1,20 +1,20 @@
-<div id="dropdown" class="z-10 hidden justify-center items-center rating-dropdown pointer-events-auto">
+<div id="dropdown" class="z-10 hidden justify-center items-center">
     <div x-data="{ 
-        rating: 0, hoverRating: 0,
-        ratings: [{'amount': 1, 'label':'Terrible'}, {'amount': 2, 'label':'Bad'}, {'amount': 3, 'label':'Good'}, {'amount': 4, 'label':'Great'}, {'amount': 5, 'label':'Fantastic'}],
-        rate(amount) {
-            if (this.rating == amount) {
-                this.rating = 0;
+            rating: 0, hoverRating: 0,
+            ratings: [{'amount': 1, 'label':'Terrible'}, {'amount': 2, 'label':'Bad'}, {'amount': 3, 'label':'Good'}, {'amount': 4, 'label':'Great'}, {'amount': 5, 'label':'Fantastic'}],
+            rate(amount) {
+                if (this.rating == amount) {
+                    this.rating = 0;
+                }
+                else this.rating = amount;
+            },
+            currentLabel() {
+                let r = this.rating;
+                if (this.hoverRating != this.rating) r = this.hoverRating;
+                let i = this.ratings.findIndex(e => e.amount == r);
+                if (i >=0) {return this.ratings[i].label;} else {return ''};     
             }
-            else this.rating = amount;
-        },
-        currentLabel() {
-            let r = this.rating;
-            if (this.hoverRating != this.rating) r = this.hoverRating;
-            let i = this.ratings.findIndex(e => e.amount == r);
-            if (i >=0) {return this.ratings[i].label;} else {return ''};     
-        }
-    }"  class="flex flex-col items-center justify-center rounded p-1 bg-[#333]">
+        }"  class="flex flex-col items-center justify-center rounded p-1 bg-[#333]">
         <div class="flex">
             <template x-for="(star, index) in ratings" :key="index">
                 <a @click="rate(star.amount); window.location.href = '{{ route('rating', $title) }}/?amount=' + star.label" 
@@ -38,6 +38,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 

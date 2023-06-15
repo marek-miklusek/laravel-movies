@@ -42,6 +42,9 @@ body {
     stroke: #21d07a;
 }
 
+.rate-svg:hover {
+    fill: #FFD700;
+}
 
 
 

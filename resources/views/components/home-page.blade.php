@@ -25,7 +25,7 @@
                 <div class="pt-10 lg:w-3/4 text-2xl">
                     This website is an imitation of Netflix, where you can watch movie and 
                     tv show trailers. If you want to watch full movies and tv shows, go to the original 
-                    <a href="https://netflix.com" target="_blanket" class="text-[#e50914] hover:underline">
+                    <a href="https://netflix.com" target="_blanket" class="text-[#e50914] hover:underline text-2xl">
                         NETFLIX.
                     </a> 
                 </div>

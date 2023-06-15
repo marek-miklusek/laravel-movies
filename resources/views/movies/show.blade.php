@@ -69,7 +69,7 @@
 
                             {{-- Rate it button --}}
                             <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" @popper(Rate it!) 
-                                class="bg-black mt-12 w-10 h-10 border-2 border-white hover:border-[#21d07a]
+                                class="bg-black mt-12 w-10 h-10 relative top-[1.5px] border-2 border-white hover:border-[#21d07a]
                                     rounded-full flex justify-center items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="#FFD700" viewBox="0 0 24 24" 
                                     stroke-width="1.5" stroke="#FFD700" class="w-5 h-5">
