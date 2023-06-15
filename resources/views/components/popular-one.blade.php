@@ -3,7 +3,7 @@
     <div class="absolute z-10 h-full w-full">
         <div class="flex h-full items-center justify-start px-16">
             <div class="hidden w-2/5 flex-col space-y-4 py-12 lg:flex">
-                <h1 class="text-6xl font-semibold text-white">
+                <h1 class="text-5xl font-semibold text-white">
                     {{ $title }}
                 </h1>
                 <p class="text-lg font-semibold text-white">
@@ -29,6 +29,9 @@
         </div>
     </div>
 
-    <img class="h-screen w-screen object-contain" src="{{ 'https://image.tmdb.org/t/p/w342/'.$popular['poster_path'] }}">
+    {{-- <div class="w-1/2"> --}}
+        <img class="h-screen w-screen object-contain" 
+            src="{{ 'https://image.tmdb.org/t/p/w342/'.$popular['poster_path'] }}">
+    {{-- </div> --}}
 
 </section>
