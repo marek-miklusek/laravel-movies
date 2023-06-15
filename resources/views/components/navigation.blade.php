@@ -1,6 +1,6 @@
 <div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 50)" 
     class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
-    <div class="flex flex-wrap items-center px-3 sm:px-16 py-4 justify-center">
+    <div class="flex flex-wrap items-center px-3 sm:px-0 sm:mx-16 py-4 justify-center">
         
        <a href="/home">
             <img src="{{ url('/img/netflix-logo.png') }}" alt="netflix-logo" class="w-36 mr-4 md:mr-0">
@@ -52,12 +52,12 @@
                             @endforeach
                         </ul>
                         <a href="{{ route('profile.edit') }}" 
-                            class="block rounded-md px-8 py-2 font-bold bg-[#333] hover:bg-gray-200 hover:text-gray-800">
+                            class="block rounded-md px-8 py-2 font-bold text-orange-500 bg-[#333] hover:bg-gray-200 hover:text-gray-800">
                             Profile
                         </a>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="w-full text-left rounded-md px-8 py-2 font-bold bg-[#333]
+                            <button type="submit" class="w-full text-left text-orange-500 rounded-md px-8 py-2 font-bold bg-[#333]
                                 hover:bg-gray-200 hover:text-gray-800">
                                 Log Out
                             </button>
