@@ -1,8 +1,8 @@
 <div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 50)" 
     class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
-    <div class="flex flex-wrap items-center py-6 justify-center">
+    <div class="flex flex-wrap items-center px-3 md:px-16 py-6 justify-center">
 
-        <div class="pl-3 sm:pl-16">
+        <div>
             <a href="/home">
                 <img src="{{ url('/img/netflix-logo.png') }}" alt="netflix-logo" class="w-36 mr-4 md:mr-0">
            </a>
@@ -24,7 +24,7 @@
         <nav class="flex flex-wrap items-center justify-center space-x-6 text-base font-bold md:ml-auto">
             @auth
                 <livewire:search-dropdown>
-                <div x-data="{ open: false }" class="relative inline-block pr-3 sm:pr-16" 
+                <div x-data="{ open: false }" class="relative inline-block" 
                     :class="{'text-gray-900': open, 'text-gray-600': !open }">
                     <button @click="open = !open" @click.away="open = false" class="flex items-center">
                         <img src="http://occ-0-6221-2218.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229"
@@ -68,7 +68,7 @@
                 </div>
             @else
                 <div x-data="{ open: false }"
-                    class="relative inline-block pr-3 sm:pr-16"
+                    class="relative inline-block"
                     :class="{'text-gray-900': open, 'text-gray-600': !open }">
                     <button  @click="open = !open" @click.away="open = false" class="flex items-center">
                         <img src="http://occ-0-6221-2218.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229"

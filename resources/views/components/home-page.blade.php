@@ -5,7 +5,7 @@
     {{-- Overlay --}}
     <div class="absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full bg-black opacity-60"></div>
 
-    <div class="z-30 flex flex-col items-center justify-center pt-40 sm:pt-48 text-gray-100">
+    <div class="z-30 flex flex-col items-center justify-center pt-48 text-gray-100">
         <h1 class="w-full px-2 sm:px-12 text-center text-4xl font-bold lg:px-0 lg:text-5xl">
             Unlimited movies, TV shows, and more. 
         </h1>
