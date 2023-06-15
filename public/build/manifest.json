@@ -8,5 +8,10 @@
     "file": "assets/app-6870bb4e.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/flowbite.min.js": {
+    "file": "assets/app-7860aa4c.js",
+    "isEntry": true,
+    "src": "resources/js/flowbite.min.js"
   }
 }
