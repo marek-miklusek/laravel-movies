@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         session()->flash('message', 'Welcome '.auth()->user()->name.', you are logged in');
-        return redirect()->route('movies.index');
+        return redirect()->route('home');
     }
 
     /**

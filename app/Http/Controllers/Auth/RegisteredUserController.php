@@ -47,6 +47,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         session()->flash('message', 'Welcome '.auth()->user()->name.', you have been successfully registered');
-        return redirect()->route('movies.index');
+        return redirect()->route('home');
     }
 }

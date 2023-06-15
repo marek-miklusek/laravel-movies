@@ -23,7 +23,7 @@
                     <button @click="expanded = !expanded"
                         :aria-expanded="expanded"
                         class="flex w-full items-center justify-between px-6 py-3 text-xl font-bold tracking-wider">
-                        <span x-text="title"></span>
+                        <span x-text="title" class="text-left"></span>
                         <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
                         <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
                     </button>

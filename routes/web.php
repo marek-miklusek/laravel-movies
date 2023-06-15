@@ -21,7 +21,7 @@ use App\Http\Controllers\TvController;
 |
 */
 
-Route::view('/', 'home');
+Route::view('/', 'home-page');
 Route::post('newsletter', [NewsletterController::class, 'newsletter']);
 
 Route::middleware('auth')->group(function () {
@@ -29,9 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/home', [MoviesController::class, 'home'])->name('home');
     Route::get('/movies', [MoviesController::class, 'index'])->name('movies.index');
     Route::get('/movie/{id}', [MoviesController::class, 'show'])->name('movies.show');
-    Route::get('/upcoming', [MoviesController::class, 'upcoming'])->name('movies.upcoming');
 
     Route::get('/actor/{id}', [ActorsController::class, 'show'])->name('actors.show');
 

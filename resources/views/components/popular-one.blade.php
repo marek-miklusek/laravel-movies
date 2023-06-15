@@ -1,4 +1,4 @@
-<section class="mt-32 flex justify-center h-screen w-full sm:mt-20">
+<section class="mt-24 flex justify-center h-screen w-full sm:mt-20">
 
     <div class="absolute z-10 h-full w-full">
         <div class="flex h-full items-center justify-start px-16">
@@ -29,9 +29,6 @@
         </div>
     </div>
 
-    <div class="object-cover lg:h-screen">
-        <img class="h-screen w-screen object-contain"
-            src="{{ 'https://image.tmdb.org/t/p/w342/'.$popular['poster_path'] }}">
-    </div>
+    <img class="h-screen w-screen object-contain" src="{{ 'https://image.tmdb.org/t/p/w342/'.$popular['poster_path'] }}">
 
 </section>

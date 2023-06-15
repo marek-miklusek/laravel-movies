@@ -12,6 +12,43 @@ use Illuminate\Support\Facades\Cache;
 
 class MoviesController extends Controller
 {
+    public function home()
+    {
+        $upcoming = Cache::remember('movies_upcoming', 60 * 60, function () {
+            return Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3/movie/upcoming')
+                ->json()['results'];
+        });
+
+        $nowPlaying = Cache::remember('movies_now_playing', 60 * 60, function () {
+            return Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3/movie/now_playing')
+                ->json()['results'];
+        });
+
+        $airingToday = Cache::remember('tv_airing_today', 60 * 60, function () {
+            return Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3/tv/airing_today')
+                ->json()['results'];
+        });
+
+        $topRated = Cache::remember('movies_top_rated', 60 * 60, function () {
+            return Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/3/movie/top_rated')
+                ->json()['results'];
+        });
+
+        $viewModel = new UpcomingViewModel(
+            $upcoming,
+            $nowPlaying,
+            $airingToday,
+            $topRated,
+        );
+
+        return view('home', $viewModel);
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -60,43 +97,6 @@ class MoviesController extends Controller
         $viewModel = new MovieViewModel($movie);
 
         return view('movies.show', $viewModel);
-    }
-
-
-    public function upcoming()
-    {
-        $upcoming = Cache::remember('movies_upcoming', 60 * 60, function () {
-            return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/movie/upcoming')
-                ->json()['results'];
-        });
-
-        $nowPlaying = Cache::remember('movies_now_playing', 60 * 60, function () {
-            return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/movie/now_playing')
-                ->json()['results'];
-        });
-
-        $airingToday = Cache::remember('tv_airing_today', 60 * 60, function () {
-            return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/tv/airing_today')
-                ->json()['results'];
-        });
-
-        $topRated = Cache::remember('movies_top_rated', 60 * 60, function () {
-            return Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/movie/top_rated')
-                ->json()['results'];
-        });
-
-        $viewModel = new UpcomingViewModel(
-            $upcoming,
-            $nowPlaying,
-            $airingToday,
-            $topRated,
-        );
-
-        return view('movies.upcoming', $viewModel);
     }
 
 

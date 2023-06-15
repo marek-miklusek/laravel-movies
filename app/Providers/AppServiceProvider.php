@@ -14,11 +14,12 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
+    
     /**
      * Bootstrap any application services.
      */
     public function boot(): void
     {
-        //
+        require_once app_path('Helpers/functions.php');
     }
 }
