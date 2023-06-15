@@ -1,13 +1,13 @@
 <div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 50)" 
     class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
-    <div class="flex flex-wrap items-center px-3 sm:px-16 py-6 justify-center">
+    <div class="flex flex-wrap items-center px-3 py-6 justify-around">
 
         <a href="/home">
             <img src="{{ url('/img/netflix-logo.png') }}" alt="netflix-logo" class="w-36 mr-4 md:mr-0"> 
         </a>
 
         @auth
-            <ul class="font-bold hidden ml-auto text-md flex-row gap-6 lg:flex">
+            <ul class="font-bold hidden text-md flex-row gap-6 lg:flex">
                 @foreach ($lists as $item)
                     <li>
                         <a href="{{ $item['href'] }}" class="hover:text-[#e50914] 
@@ -19,7 +19,7 @@
             </ul>
         @endauth
             
-        <nav class="flex flex-wrap items-center justify-center space-x-6 text-base font-bold md:ml-auto">
+        <nav class="flex flex-wrap items-center justify-center space-x-6 text-base font-bold">
             @auth
                 <livewire:search-dropdown>
                 <div x-data="{ open: false }" class="relative inline-block" 
