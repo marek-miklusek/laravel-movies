@@ -1,5 +1,6 @@
-<div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 50)" 
-    class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
+{{-- <div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 50)" 
+    class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }"> --}}
+<div class="w-full text-white">
     <div class="flex flex-wrap items-center px-3 py-6 justify-around">
 
         <a href="/home">
