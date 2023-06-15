@@ -1,6 +1,6 @@
 <div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 50)" 
     class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
-    <div class="flex flex-wrap items-center p-5 px-14 justify-center">
+    <div class="flex flex-wrap items-center px-2 py-4 md:px-14 justify-center">
         
        <a href="/">
             <div class="flex items-center text-3xl font-bold uppercase md:mb-0 h-[45px] w-[130px] mr-4 md:mr-0">
