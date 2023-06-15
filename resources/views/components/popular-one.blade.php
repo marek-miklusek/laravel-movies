@@ -3,7 +3,7 @@
     <div class="absolute z-10 h-full w-full">
         <div class="flex h-full items-center justify-start px-16">
             <div class="hidden w-2/5 flex-col space-y-4 py-12 lg:flex">
-                <h1 class="text-5xl font-semibold text-white">
+                <h1 class="text-4xl font-semibold text-white">
                     {{ $title }}
                 </h1>
                 <p class="text-lg font-semibold text-white">
