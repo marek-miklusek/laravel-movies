@@ -3,7 +3,7 @@
     <div class="flex flex-wrap items-center px-3 sm:px-16 py-6 justify-center">
 
         <a href="/home">
-            <img src="{{ url('/img/netflix-logo.png') }}" alt="netflix-logo" class="w-32 mr-4 md:mr-0"> 
+            <img src="{{ url('/img/netflix-logo.png') }}" alt="netflix-logo" class="w-36 mr-4 md:mr-0"> 
         </a>
 
         @auth
