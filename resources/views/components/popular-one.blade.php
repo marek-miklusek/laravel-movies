@@ -1,4 +1,4 @@
-<section class="mt-28 flex justify-center h-screen w-full sm:mt-20">
+<section class="mt-[6.5rem] flex justify-center h-screen w-full sm:mt-20">
 
     <div class="absolute z-10 h-full w-full">
         <div class="flex h-full items-center justify-start px-16">
@@ -29,9 +29,7 @@
         </div>
     </div>
 
-    {{-- <div class="w-1/2"> --}}
-        <img class="h-screen w-screen object-contain" 
-            src="{{ 'https://image.tmdb.org/t/p/w342/'.$popular['poster_path'] }}">
-    {{-- </div> --}}
+    <img class="h-screen w-screen object-contain" 
+        src="{{ 'https://image.tmdb.org/t/p/w342/'.$popular['poster_path'] }}">
 
 </section>
