@@ -1,6 +1,6 @@
 <div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 50)" 
     class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
-    <div class="flex flex-wrap items-center px-3 sm:px-0 sm:mx-16 py-4 justify-center">
+    <div class="flex flex-wrap items-center sm:px-16 py-4 justify-center">
         
        <a href="/home">
             <img src="{{ url('/img/netflix-logo.png') }}" alt="netflix-logo" class="w-36 mr-4 md:mr-0">
