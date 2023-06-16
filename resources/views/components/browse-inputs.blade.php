@@ -1,4 +1,4 @@
-<div class="relative mt-32 sm:mt-24 px-8 font-semibold">
+<div class="relative mt-32 sm:mt-24 px-10 font-semibold">
     <h1 class="text-white font-semibold text-2xl">Browse by Languages and Genres</h1>
     <div class="flex gap-4 items-center flex-wrap mt-3">
         <h3 class="text-white font-semibold">Select Your Preferences</h3>
@@ -25,7 +25,7 @@
         {{-- Genres input --}}
         <button id="dropdownDefaultButton" data-dropdown-toggle="dropdownb" class="text-white bg-[#333]
             font-semibold text-sm px-2 py-1 text-center inline-flex items-center" type="button">
-            Genres:<span class="pl-1 text-[#e50914]">{{ $genre }}</span>
+            Genre:<span class="pl-1 text-[#e50914]">{{ $genre }}</span>
             <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div id="dropdownb" class="z-10 hidden divide-y divide-gray-100 rounded-lg w-44 bg-[#333]">
@@ -43,10 +43,9 @@
 
         {{-- Sort by input --}}
         <div class="sm:flex flex-wrap gap-3">
-            <div class="text-white font-semibold mb-3 sm:mb-0">Sort by</div>
             <button id="dropdownDefaultButton" data-dropdown-toggle="dropdownc" class="text-white bg-[#333]
                 font-semibold text-sm px-2 py-1 text-center inline-flex items-center" type="button">
-                Suggestions for you:<span class="pl-1 text-[#e50914]">{{ $movies[0]['sort'] }}</span>
+                Sort by:<span class="pl-1 text-[#e50914]">{{ $movies[0]['sort'] }}</span>
                 <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
         </div>

@@ -1,9 +1,9 @@
 <x-master-layout>
     
     <div class="mt-28 sm:mt-16">
-        <div class="container mx-auto p-7 lg:px-14 pb-36">
+        <div class="container mx-auto p-7 lg:px-10 pb-36">
             <h1 class="text-3xl text-white pb-4">My List</h1>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5  gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 @forelse ($my_lists as $list)
                     <div class="mt-5">
                         <div class="relative">
@@ -66,7 +66,7 @@
                     </div>
                 @empty
                     <div class="text-gray-100 h-80 col-span-5 text-xl pt-1">
-                        You haven't added any titles to your list yet.
+                        Your list is currently empty as you haven't added any titles yet.
                     </div>
                 @endforelse
             </div>

@@ -22,7 +22,6 @@ use App\Http\Controllers\TvController;
 */
 
 Route::view('/', 'home-page');
-Route::post('newsletter', [NewsletterController::class, 'newsletter']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

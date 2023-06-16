@@ -1,8 +1,8 @@
 <div x-data="{ scrollDown: false }" x-init="window.addEventListener('scroll', () => scrollDown = window.pageYOffset > 50)" 
     class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
-    <div class="px-3 sm:px-16 flex flex-wrap items-center py-6 justify-center">
+    <div class="px-3 sm:px-10 flex flex-wrap items-center py-6 justify-center">
 
-        <div class="text-3xl text-[#e50914] font-bold">
+        <div class="mr-5 lg:mr-0 text-3xl text-[#e50914] font-bold">
             <a href="/home">MOVIESFUN</a>
         </div>
 
@@ -24,9 +24,8 @@
                 <livewire:search-dropdown>
                 <div x-data="{ open: false }" class="relative inline-block" 
                     :class="{'text-gray-900': open, 'text-gray-600': !open }">
-                    <button @click="open = !open" @click.away="open = false" class="flex items-center">
-                        <img src="http://occ-0-6221-2218.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229"
-                            alt="avatar" class="rounded">
+                    <button @click="open = !open" @click.away="open = false" class="flex items-center hover:opacity-80">
+                        <img width="30" src="{{ url('img/favicon.ico') }}" alt="logo">
                         <span :class="open = !open ? '': '-rotate-180'" class="ml-1 transform transition-transform duration-500">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -68,9 +67,8 @@
                 <div x-data="{ open: false }"
                     class="relative inline-block"
                     :class="{'text-gray-900': open, 'text-gray-600': !open }">
-                    <button  @click="open = !open" @click.away="open = false" class="flex items-center">
-                        <img src="http://occ-0-6221-2218.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229"
-                        alt="avatar" class="rounded">
+                    <button  @click="open = !open" @click.away="open = false" class="flex items-center hover:opacity-80">
+                        <img width="30" src="{{ url('img/favicon.ico') }}" alt="logo">
                         <span :class="open = ! open ? '': '-rotate-180'" class="ml-2 transform transition-transform duration-500">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />

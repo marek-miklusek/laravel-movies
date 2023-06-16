@@ -46,13 +46,12 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif --}}
-
                 <x-primary-button>
                     {{ __('Log in') }}
                 </x-primary-button>
                 <div class="text-white text-center mt-4">
                     or
-                    <a href="{{ route('register') }}" class="underline hover:text-[#e50914] pl-2">
+                    <a href="{{ route('register') }}" class="underline hover:text-[#21d07a] pl-2">
                         Register?
                     </a>
                 </div>
