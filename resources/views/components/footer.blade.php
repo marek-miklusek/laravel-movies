@@ -2,20 +2,6 @@
 
 <footer class="bg-black mx-auto grid grid-cols-3 justify-items-center sm:grid-cols-4 px-3
     pt-10 pb-20 sm:pb-14 text-sm text-[#afafaf]">
-    <div class="mx-3 sm:space-y-3 w-20 h-20">
-        <a href="https://netflix.com" target="_blanket" class="hover:text-[#e50914] hover:underline">
-            <div class="uppercase font-bold text-center mb-2">
-                Go to original
-            </div>
-        </a>
-        <img src="{{ asset('img/netflix.png') }}" alt="netflix logo">
-        <div class="flex flex-wrap sm:flex-nowrap gap-2 md:gap-4 justify-center">
-            <a href="https://www.facebook.com/netflix/" target="_blanket"><i class="hover:text-white fab fa-facebook-square fa-2x"></i></a>
-            <a href="https://www.instagram.com/netflix/" target="_blanket"><i class="hover:text-white fab fa-instagram fa-2x"></i></a>
-            <a href="https://twitter.com/netflix?" target="_blanket"><i class="hover:text-white fab fa-twitter fa-2x"></i></a>
-            <a href="https://www.youtube.com/channel/UCWOA1ZGywLbqmigxE4Qlvuw" target="_blanket"><i class="hover:text-white fab fa-youtube fa-2x"></i></a>
-        </div>
-    </div>
     <div class="mx-3 sm:space-y-3 underline">
         <div>Audio and Subtitles</div>
         <div>Media centre</div>
@@ -28,12 +14,18 @@
         <div>Legal Notices</div>
         <div>Terms of Use</div>
     </div>
+    <div class="mx-3 sm:space-y-3 underline ">
+        <div>Gift Cards</div>
+        <div>Terms of Use</div>
+        <div>Media centre</div>
+        <div>Cookie Preferences</div>
+    </div>
     <div class="hidden sm:block mx-3 sm:space-y-3">
         @guest
             <div class="underline">Help Centre</div>
             <div class="underline">Jobs</div>
             <div class="underline">Corporate Information</div>
-            <div class="underline">Cookie Preferences</div>
+            <div>Media centre</div>
         @endguest
         @auth
             <div class="underline">Help Centre</div>

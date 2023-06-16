@@ -2,9 +2,9 @@
     class="w-full fixed top-0 z-50 text-white" :class="{ 'hidden': scrollDown }">
     <div class="px-3 sm:px-16 flex flex-wrap items-center py-6 justify-center">
 
-        <a href="/home">
-            <img src="{{ url('/img/netflix-logo.png') }}" alt="netflix-logo" class="w-36 mr-4 md:mr-0"> 
-        </a>
+        <div class="text-3xl text-[#e50914] font-bold">
+            <a href="/home">MOVIESFUN</a>
+        </div>
 
         @auth
             <ul class="font-bold hidden ml-auto text-md flex-row gap-6 lg:flex">

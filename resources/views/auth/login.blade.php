@@ -2,7 +2,7 @@
   
     <div class="w-full relative h-screen flex justify-center items-center">
         <img class="absolute top-0 bottom-0 z-0 h-full w-full object-cover"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/e178a4e7-4f52-4661-b2ae-41efa25dca7c/60dd20cf-7213-48a1-b253-6484d62d96a8/IN-en-20210222-popsignuptwoweeks-perspective_alpha_website_small.jpg" alt="movies">
+        src="{{ url('img/login-register.jpeg') }}" alt="movies">
         
         {{-- Overlay --}}
         <div class="absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full bg-black opacity-60"></div>
