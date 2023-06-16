@@ -1,6 +1,6 @@
 <x-master-layout>
     
-    <div class="p-2 lg:p-8 mt-16 sm:mt-10">
+    <div class="p-2 lg:p-7 mt-16 sm:mt-10">
         <div class="container mx-auto px-4 py-12 flex flex-col md:flex-row">
             <div class="flex-none">
                 <img src="{{ $movie['poster_path'] }}" alt="poster" class="w-64 lg:w-96">

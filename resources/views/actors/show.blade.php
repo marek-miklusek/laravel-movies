@@ -1,7 +1,7 @@
 <x-master-layout>
 
     {{-- Profle image --}}
-    <div class="p-2 lg:p-8 mt-16 sm:mt-10 border-b border-gray-800">
+    <div class="p-2 lg:p-7 mt-16 sm:mt-10 border-b border-gray-800">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
             <div class="flex-none">
                 <img src="{{ $actor['profile_path'] }}" alt="profile image" class="w-76">

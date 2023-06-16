@@ -12,7 +12,7 @@
                 Awesome Movies, TV shows, and more. 
             </h1>
             <p class="mt-6 px-12 text-center font-semibold text-2xl">
-                On this platform, you can watch movies and TV shows trailers.
+                On this platform, you can watch Movies and TV shows trailers.
             </p>
             <p class="mt-6 px-12 text-center font-semibold text-xl">
                 Just go to <a href="{{ route('register') }}" class="text-[#e50914] hover:underline">register</a>
