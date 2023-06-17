@@ -21,6 +21,11 @@ class SignInFacebookController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
 
+        if ( ! $user ) {
+            session()->flash('message_w', 'Try to push Continue, not Cancel:)');
+            return redirect()->route('login');
+        }
+
         $user = User::firstOrCreate([
             'email' => $user->email
         ],[
