@@ -10,7 +10,7 @@
                 <div class="max-w-xl">
                     @include('profile.partials.update-password-form')
                 </div>
-            </div>
+            </div >
 
             <div class="bg-black bg-opacity-50 p-4 sm:p-8 sm:rounded-lg">
                 <div class="max-w-xl">
