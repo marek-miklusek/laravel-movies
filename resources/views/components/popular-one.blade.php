@@ -1,4 +1,4 @@
-<section class="mt-10 flex justify-center h-screen w-full sm:mt-20">
+<section class="mt-14 flex justify-center h-screen w-full sm:mt-20">
 
     <div class="absolute z-10 h-full w-full" >
         <div class="flex h-full items-center justify-start px-16">

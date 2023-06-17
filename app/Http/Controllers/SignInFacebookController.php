@@ -19,9 +19,12 @@ class SignInFacebookController extends Controller
 
     public function signInRedirect()
     {
-        $user = Socialite::driver('facebook')->user();
+        // $user = Socialite::driver('facebook')->user();
 
-        if ( ! $user ) {
+        try {
+            $user = Socialite::driver('facebook')->user();
+        } 
+        catch (\Exception $e) {
             session()->flash('message_w', 'Try to push Continue, not Cancel:)');
             return redirect()->route('login');
         }
