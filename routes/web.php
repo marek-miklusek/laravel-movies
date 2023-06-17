@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ActorsController;
-use App\Http\Controllers\AddToMyListController;
-use App\Http\Controllers\BrowseByLangGenre;
-use App\Http\Controllers\MoviesController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TvController;
+use App\Http\Controllers\ActorsController;
+use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\RatingController;
+use App\Http\Controllers\BrowseByLangGenre;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AddToMyListController;
+use App\Http\Controllers\SignInFacebookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,12 @@ use App\Http\Controllers\TvController;
 */
 
 Route::view('/', 'home-page');
+
+Route::middleware('guest')->group(function () {
+    Route::get('sign-in/facebook', [SignInFacebookController::class, 'signIn'])->name('sign-in');
+    Route::get('sign-in/facebook/redirect', [SignInFacebookController::class, 'signInRedirect']);
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
