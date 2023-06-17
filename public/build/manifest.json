@@ -1,0 +1,21 @@
+{
+  "public/img/login-register.jpeg": {
+    "file": "assets/login-register-c3c24125.jpeg",
+    "src": "public/img/login-register.jpeg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-8e30db16.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-6870bb4e.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/flowbite.min.js": {
+    "file": "assets/app-8607dd4e.js",
+    "isEntry": true,
+    "src": "resources/js/flowbite.min.js"
+  }
+}
