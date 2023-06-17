@@ -23,7 +23,7 @@
     
     <x-gap></x-gap>
     
-    <section class="pb-12 lg:pb-0">
+    <section class="pb-12 lg:pb-0 ">
         <div class="text-white font-bold flex flex-wrap lg:flex-nowrap justify-center lg:p-20">
             <div class="p-10 flex flex-col items-center justify-center">
                 <div>
