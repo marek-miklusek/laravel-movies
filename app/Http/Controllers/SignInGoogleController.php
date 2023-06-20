@@ -31,7 +31,7 @@ class SignInGoogleController extends Controller
             'email' => $user->email
         ],[
             'name' => $user->name,
-            'password' => Hash::make('password')
+            'password' => Hash::make(Str::random(24))
         ]);
 
         Auth::login($user);
