@@ -3,23 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
-class SignInFacebookController extends Controller
+class SignInGoogleController extends Controller
 {
     public function signIn()
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('google')->redirect();
     }
 
 
     public function signInRedirect()
     {
-        $user = Socialite::driver('facebook')->user();
+        try {
+            $user = Socialite::driver('google')->user();
+        } 
+        catch (\Exception $e) {
+            redirect()->back();
+        }
 
         $user = User::firstOrCreate([
             'email' => $user->email
