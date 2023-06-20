@@ -8,6 +8,7 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\BrowseByLangGenre;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AddToMyListController;
+use App\Http\Controllers\SignInGoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,11 @@ use App\Http\Controllers\AddToMyListController;
 */
 
 Route::view('/', 'home-page');
+
+Route::middleware('guest')->group(function () {
+    Route::get('sign-in/google', [SignInGoogleController::class, 'signIn'])->name('sign-in');
+    Route::get('sign-in/google/redirect', [SignInGoogleController::class, 'signInRedirect']);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
