@@ -23,7 +23,7 @@ class SignInGoogleController extends Controller
         try {
             $user = Socialite::driver('google')->user();
         } 
-        catch (\Exception $e) {
+        catch (Exception $e) {
             redirect()->back();
         }
 
